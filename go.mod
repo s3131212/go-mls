@@ -1,4 +1,4 @@
-module github.com/cisco/go-mls
+module github.com/s3131212/go-mls
 
 go 1.14
 
