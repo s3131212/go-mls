@@ -21,8 +21,8 @@ const (
 
 type ParentNode struct {
 	PublicKey      HPKEPublicKey
-	UnmergedLeaves []LeafIndex `tls:"head=4"`
-	ParentHash     []byte      `tls:"head=1"`
+	UnmergedLeaves []LeafIndex `tls:"head=16"`
+	ParentHash     []byte      `tls:"head=4"`
 }
 
 func (n *ParentNode) Equals(other *ParentNode) bool {
@@ -599,7 +599,7 @@ func (priv TreeKEMPrivateKey) ConsistentPub(pub TreeKEMPublicKey) bool {
 
 type TreeKEMPublicKey struct {
 	Suite CipherSuite    `tls:"omit"`
-	Nodes []OptionalNode `tls:"head=4"`
+	Nodes []OptionalNode `tls:"head=16"`
 }
 
 func NewTreeKEMPublicKey(suite CipherSuite) *TreeKEMPublicKey {
